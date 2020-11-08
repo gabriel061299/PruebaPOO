@@ -299,10 +299,46 @@ public class Controlador implements ActionListener{
 			}
 		}
 		if (e.getSource() == vistcod.hombre){
-			System.out.println("asdf");
+			
 			vistcod.info2.setText("Hombres");
 			vistcod.info2.updateUI();
 			vistcod.info2.repaint();
+		}
+		if (e.getSource() == vistcod.mujer){
+			
+			vistcod.info2.setText("Mujeres");
+			vistcod.info2.updateUI();
+			vistcod.info2.repaint();
+		}
+		if (e.getSource() == vistcod.epoc){
+			
+			vistcod.info3.setText("EPOC");
+			vistcod.info3.updateUI();
+			vistcod.info3.repaint();
+		}
+		if (e.getSource() == vistcod.asma){
+			
+			vistcod.info3.setText("Asma");
+			vistcod.info3.updateUI();
+			vistcod.info3.repaint();
+		}
+		if (e.getSource() == vistcod.hipertension){
+			
+			vistcod.info3.setText("Hipertension");
+			vistcod.info3.updateUI();
+			vistcod.info3.repaint();
+		}
+		if (e.getSource() == vistcod.obesidad){
+		
+			vistcod.info3.setText("Obesidad");
+			vistcod.info3.updateUI();
+			vistcod.info3.repaint();
+		}
+		if (e.getSource() == vistcod.edad){
+			
+			vistcod.info3.setText("Edad");
+			vistcod.info3.updateUI();
+			vistcod.info3.repaint();
 		}
 		
 	}

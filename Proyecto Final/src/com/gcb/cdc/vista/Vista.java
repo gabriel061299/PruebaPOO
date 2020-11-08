@@ -27,6 +27,7 @@ public class Vista extends JFrame {
 	public JPanel panel1,panel2, panelinfo, panelbotons;
 	public JLabel info;
 	public JLabel info2;
+	public JLabel info3;
 	
 	public Vista(){
 		
@@ -91,6 +92,8 @@ public class Vista extends JFrame {
 		panel2.add(info,BorderLayout.NORTH);
 		info2 = new JLabel("");
 		panel2.add(info2,BorderLayout.NORTH);
+		info3 = new JLabel("");
+		panel2.add(info3,BorderLayout.NORTH);
 		
 		
 		
