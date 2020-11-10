@@ -12,11 +12,12 @@ import com.gcb.cdc.vista.Vista;
 
 public class Controlador implements ActionListener{
 
-	Vista vistcod = new Vista();
-	ConectaTabla contabla = new ConectaTabla();
+	Vista vistcod; //= new Vista();
+	ConectaTabla contabla;// = new ConectaTabla();
 	int datos1 = 0;
 	int datos2 = 0;
 	int datos3 = 0;
+	ArrayList<ModeloCovid> listaCovid = new ArrayList<ModeloCovid>();
 	ArrayList<ModeloCovid> idEntidades = new ArrayList<ModeloCovid>();
 	ArrayList<ModeloCovid> Genero = new ArrayList<ModeloCovid>();
 	
@@ -90,12 +91,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Aguascalientes");
-					for(int i=0;i<200;i++){
-						if(contabla.listacovid().get(i).getEntidad()== 1){
-							idEntidades.add(contabla.listacovid().get(i));
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(1)){
+						if(datoss.getEntidad()== 1){
+							idEntidades.add(datoss);
+							datos1++;
 						}
 					}
-					
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -103,6 +107,15 @@ public void actionPerformed(ActionEvent e) {
 				//vistcod.info.selectAll();
 				//vistcod.info.replaceSelection("");
 				vistcod.info.setText("Baja California");
+				idEntidades.clear();
+				datos1 = 0;
+				for(ModeloCovid datoss : contabla.listacovid(2)){
+					if(datoss.getEntidad()== 2){
+						idEntidades.add(datoss);
+						datos1++;
+					}
+				}
+				System.out.println("Datos ent:"+ datos1);
 				vistcod.info.updateUI();
 				vistcod.info.repaint();
 				}
@@ -110,6 +123,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Baja California Sur");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(3)){
+						if(datoss.getEntidad()== 3){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -117,6 +139,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Campeche");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(4)){
+						if(datoss.getEntidad()== 4){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -124,6 +155,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Coahuila de Zaragoza");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(5)){
+						if(datoss.getEntidad()== 5){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -131,6 +171,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Colima");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(6)){
+						if(datoss.getEntidad()== 6){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -138,6 +187,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Chiapas");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(7)){
+						if(datoss.getEntidad()== 7){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -145,6 +203,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Chihuahua");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(8)){
+						if(datoss.getEntidad()== 8){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -152,9 +219,11 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Ciudad de México");
-					for(int i=0;i<25;i++){
-						if(contabla.listacovid().get(i).getEntidad()== 9){
-							idEntidades.add(contabla.listacovid().get(i));
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(9)){
+						if(datoss.getEntidad()== 9){
+							idEntidades.add(datoss);
 							datos1++;
 						}
 					}
@@ -166,6 +235,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Durango");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(10)){
+						if(datoss.getEntidad()== 10){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -173,6 +251,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Guanajuato");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(11)){
+						if(datoss.getEntidad()== 11){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -180,6 +267,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Guerrero");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(12)){
+						if(datoss.getEntidad()== 12){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -187,6 +283,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Hidalgo");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(13)){
+						if(datoss.getEntidad()== 13){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -194,6 +299,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Jalisco");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(14)){
+						if(datoss.getEntidad()== 14){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -201,6 +315,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Estado de México");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(15)){
+						if(datoss.getEntidad()== 15){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -208,6 +331,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Michoacán");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(16)){
+						if(datoss.getEntidad()== 16){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -215,6 +347,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Morelos");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(17)){
+						if(datoss.getEntidad()== 17){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -222,6 +363,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Nayarit");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(18)){
+						if(datoss.getEntidad()== 18){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -229,6 +379,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Nuevo León");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(19)){
+						if(datoss.getEntidad()== 19){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -236,6 +395,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Oaxaca");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(20)){
+						if(datoss.getEntidad()== 20){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -243,6 +411,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Puebla");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(21)){
+						if(datoss.getEntidad()== 21){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -250,6 +427,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Queretaro");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(22)){
+						if(datoss.getEntidad()== 22){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -257,6 +443,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Quintana Roo");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(23)){
+						if(datoss.getEntidad()== 23){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -264,6 +459,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("San Luis Potosi");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(24)){
+						if(datoss.getEntidad()== 24){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -271,6 +475,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Sinaloa");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(25)){
+						if(datoss.getEntidad()== 25){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -278,6 +491,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Sonora");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(26)){
+						if(datoss.getEntidad()== 26){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -285,6 +507,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Tabasco");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(27)){
+						if(datoss.getEntidad()== 27){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -292,6 +523,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Tamaulipas");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(28)){
+						if(datoss.getEntidad()== 28){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -299,6 +539,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Tlaxcala");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(29)){
+						if(datoss.getEntidad()== 29){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -306,6 +555,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Veracruz");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(30)){
+						if(datoss.getEntidad()== 30){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -313,6 +571,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Yucatán");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(31)){
+						if(datoss.getEntidad()== 31){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -320,6 +587,15 @@ public void actionPerformed(ActionEvent e) {
 					//vistcod.info.selectAll();
 					//vistcod.info.replaceSelection("");
 					vistcod.info.setText("Zacatecas");
+					idEntidades.clear();
+					datos1 = 0;
+					for(ModeloCovid datoss : contabla.listacovid(32)){
+						if(datoss.getEntidad()== 32){
+							idEntidades.add(datoss);
+							datos1++;
+						}
+					}
+					System.out.println("Datos ent:"+ datos1);
 					vistcod.info.updateUI();
 					vistcod.info.repaint();
 				}
@@ -328,26 +604,31 @@ public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vistcod.hombre){
 			
 			vistcod.info2.setText("Población de Hombres");
+			Genero.clear();
+			datos2 = 0;
+			System.out.println("Genero limpio");
 			for(int i=0;i<idEntidades.size();i++){
 				if(idEntidades.get(i).getSexo()== 2){
 					Genero.add(idEntidades.get(i));
 					datos2++;
 				}
 			}
-			System.out.println("Hombres:"+datos2);
+			System.out.println("Hombres: "+datos2);
 			vistcod.info2.updateUI();
 			vistcod.info2.repaint();
 		}
 		if (e.getSource() == vistcod.mujer){
 			
 			vistcod.info2.setText("Población de Mujeres");
+			Genero.clear();
+			datos2 = 0;
 			for(int i=0;i<idEntidades.size();i++){
 				if(idEntidades.get(i).getSexo()== 1){
 					Genero.add(idEntidades.get(i));
 					datos2++;
 				}
 			}
-			System.out.println("Mujeres"+datos2);
+			System.out.println("Mujeres: "+datos2);
 			vistcod.info2.updateUI();
 			vistcod.info2.repaint();
 		}
