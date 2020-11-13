@@ -2,15 +2,13 @@ package com.gcb.cdc.vista;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class Vista extends JFrame {
@@ -24,10 +22,10 @@ public class Vista extends JFrame {
 	public JRadioButton obesidad;
 	public JRadioButton edad;
 	public JButton estados;
-	public JPanel panel1,panel2, panelinfo, panelbotons;
-	public JLabel info;
-	public JLabel info2;
-	public JLabel info3;
+	public JPanel panel1,panel2, panelbotons,pandatos, pangraph;
+	public JLabel info,info2,info3,nulo;
+	public ButtonGroup genero, padecimiento;
+	
 	
 	public Vista(){
 		
@@ -48,6 +46,7 @@ public class Vista extends JFrame {
 		
 		panelbotons = new JPanel();
 		panelbotons.setLayout(new GridLayout(4,2));
+		
 		
 		hombre = new JRadioButton("Hombre");
 		hombre.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,24 +76,50 @@ public class Vista extends JFrame {
 		edad.setHorizontalAlignment(SwingConstants.CENTER);
 		panelbotons.add(edad);
 		
+		genero = new ButtonGroup();
+		genero.add(hombre);
+		genero.add(mujer);
+		
+		padecimiento = new ButtonGroup();
+		padecimiento.add(epoc);
+		padecimiento.add(asma);
+		padecimiento.add(hipertension);
+		padecimiento.add(obesidad);
+		padecimiento.add(edad);
+		
 		panel1.add(panelbotons,BorderLayout.CENTER);
 		
-		estados = new JButton("Mostrar Grafica");
+		estados = new JButton("Mostrar Estados");
 		panel1.add(estados,BorderLayout.SOUTH);
 		
 		this.add(panel1);
+		
 		panel2 = new JPanel();
 		panel2.setLayout(new BorderLayout());
-		this.add(panel2);
-		panel2.setLayout(new GridLayout(2,1));
-		panelinfo = new JPanel();
-		info = new JLabel("");
-		panel2.add(info,BorderLayout.NORTH);
-		info2 = new JLabel("");
-		panel2.add(info2,BorderLayout.NORTH);
-		info3 = new JLabel("");
-		panel2.add(info3,BorderLayout.NORTH);
+		pandatos = new JPanel();
+		pandatos.setLayout(new GridLayout(4,1));
 		
+		nulo = new JLabel("");
+		pandatos.add(nulo);
+		
+		info = new JLabel("");
+		info.setHorizontalAlignment(SwingConstants.CENTER);
+		pandatos.add(info);
+		
+		info2 = new JLabel("");
+		info2.setHorizontalAlignment(SwingConstants.CENTER);
+		pandatos.add(info2);
+		
+		info3 = new JLabel("");
+		info3.setHorizontalAlignment(SwingConstants.CENTER);
+		pandatos.add(info3);
+		
+		pangraph = new JPanel();
+		pangraph.setLayout(new BorderLayout());
+		panel2.add(pangraph,BorderLayout.CENTER);
+		panel2.add(pandatos,BorderLayout.NORTH);
+		
+		this.add(panel2);
 		
 		
 	}

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 
 
+
+
 import com.gcb.cdc.modelo.ConectaTabla;
 import com.gcb.cdc.modelo.ModeloCovid;
 import com.gcb.cdc.vista.Vista;
@@ -633,7 +635,9 @@ public void actionPerformed(ActionEvent e) {
 			vistcod.info2.repaint();
 		}
 		if (e.getSource() == vistcod.epoc){
-			
+			vistcod.pangraph.updateUI();
+			vistcod.pangraph.repaint();
+			vistcod.pangraph.removeAll();
 			vistcod.info3.setText("Número de Casos con EPOC");
 			datos3=0;
 			for(int i=0;i<Genero.size();i++){
@@ -641,6 +645,8 @@ public void actionPerformed(ActionEvent e) {
 					datos3++;
 				}
 			}
+			Grafica grafica = new Grafica(datos3, "a","1","EPOC");
+			vistcod.pangraph.add(grafica.creatDemoPanel());
 			System.out.println(datos3);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
