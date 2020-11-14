@@ -733,8 +733,6 @@ public void actionPerformed(ActionEvent e) {
 			System.out.println("1: "+ edad1);
 			System.out.println("2: "+ edad2);
 			System.out.println("3: "+ edad3);
-			Grafica grafica = new Grafica(edad1,"0-23", edad2, "24-60", edad3, genre, "61-110", "EDAD");
-			vistcod.pangraph.add(grafica.createDemoPanel2());
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
