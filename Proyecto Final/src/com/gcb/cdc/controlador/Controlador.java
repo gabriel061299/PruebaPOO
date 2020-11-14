@@ -17,6 +17,9 @@ public class Controlador implements ActionListener{
 	int edad1 = 0;
 	int edad2 = 0;
 	int edad3 = 0;
+	int edad4 = 0;
+	int edad5 = 0;
+	int edad6 = 0;
 	
 	String genre = "";
 	ArrayList<ModeloCovid> idEntidades = new ArrayList<ModeloCovid>();
@@ -720,19 +723,31 @@ public void actionPerformed(ActionEvent e) {
 			edad2 = 0;
 			edad3 = 0;
 			for(int i=0; i<Genero.size();i++){
-				if(Genero.get(i).getEdad()<=23){
+				if(Genero.get(i).getEdad()>=20 && Genero.get(i).getEdad()<=30){
 					edad1++;
 				}
-				if(Genero.get(i).getEdad()>23 && Genero.get(i).getEdad()<=60){
+				if(Genero.get(i).getEdad()>30 && Genero.get(i).getEdad()<=40){
 					edad2++;
 				}
-				if(Genero.get(i).getEdad()>60 && Genero.get(i).getEdad()<=110){
+				if(Genero.get(i).getEdad()>40 && Genero.get(i).getEdad()<=50){
 					edad3++;
+				}
+				if(Genero.get(i).getEdad()>50 && Genero.get(i).getEdad()<=60){
+					edad4++;
+				}
+				if(Genero.get(i).getEdad()>60 && Genero.get(i).getEdad()<=70){
+					edad5++;
+				}
+				if(Genero.get(i).getEdad()>70 && Genero.get(i).getEdad()<=100){
+					edad6++;
 				}
 			}
 			System.out.println("1: "+ edad1);
 			System.out.println("2: "+ edad2);
 			System.out.println("3: "+ edad3);
+			System.out.println("4: "+ edad4);
+			System.out.println("5: "+ edad5);
+			System.out.println("6: "+ edad6);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
