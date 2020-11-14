@@ -1,7 +1,9 @@
 package com.gcb.cdc.vista;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,16 +24,15 @@ public class Vista extends JFrame {
 	public JRadioButton obesidad;
 	public JRadioButton edad;
 	public JButton estados;
-	public JPanel panel1,panel2, panelbotons,pandatos, pangraph;
-	public JLabel info,info2,info3,nulo;
+	public JPanel panel1,panel2, panelbotons,pandatos,pangraph;
+	public JLabel info,info2,info3,nulo,nulo2;
 	public ButtonGroup genero, padecimiento;
-	
 	
 	public Vista(){
 		
 		super("Proyecto Final");
 		setSize(900,600);
-		
+		//setBackground(Color.blue);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocation(300,100);
 		setResizable(true);
@@ -96,8 +97,9 @@ public class Vista extends JFrame {
 		
 		panel2 = new JPanel();
 		panel2.setLayout(new BorderLayout());
+		
 		pandatos = new JPanel();
-		pandatos.setLayout(new GridLayout(4,1));
+		pandatos.setLayout(new GridLayout(5,1));
 		
 		nulo = new JLabel("");
 		pandatos.add(nulo);
@@ -114,14 +116,16 @@ public class Vista extends JFrame {
 		info3.setHorizontalAlignment(SwingConstants.CENTER);
 		pandatos.add(info3);
 		
+		nulo2 = new JLabel("");
+		pandatos.add(nulo2);
+		
+		panel2.add(pandatos,BorderLayout.NORTH);
+		
 		pangraph = new JPanel();
 		pangraph.setLayout(new BorderLayout());
 		panel2.add(pangraph,BorderLayout.CENTER);
-		panel2.add(pandatos,BorderLayout.NORTH);
 		
-		this.add(panel2);
-		
-		
+		this.add(panel2);	
 	}
 
 }

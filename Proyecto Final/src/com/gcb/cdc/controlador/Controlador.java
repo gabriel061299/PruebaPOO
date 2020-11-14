@@ -3,26 +3,24 @@ package com.gcb.cdc.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
-
-
-
-
 import com.gcb.cdc.modelo.ConectaTabla;
 import com.gcb.cdc.modelo.ModeloCovid;
 import com.gcb.cdc.vista.Vista;
 
 public class Controlador implements ActionListener{
 
-	Vista vistcod; //= new Vista();
-	ConectaTabla contabla;// = new ConectaTabla();
+	Vista vistcod;
+	ConectaTabla contabla; 
 	int datos1 = 0;
 	int datos2 = 0;
 	int datos3 = 0;
-	ArrayList<ModeloCovid> listaCovid = new ArrayList<ModeloCovid>();
+	int edad1 = 0;
+	int edad2 = 0;
+	int edad3 = 0;
+	
+	String genre = "";
 	ArrayList<ModeloCovid> idEntidades = new ArrayList<ModeloCovid>();
 	ArrayList<ModeloCovid> Genero = new ArrayList<ModeloCovid>();
-	
 	
 	public Controlador(Vista vistcod, ConectaTabla contabla){
 		
@@ -41,7 +39,6 @@ public class Controlador implements ActionListener{
 	
 public void actionPerformed(ActionEvent e) {
 		
-		//vistcod.genero.clearSelection();	
 	
 		if(e.getSource() == vistcod.estados){
 			
@@ -90,8 +87,7 @@ public void actionPerformed(ActionEvent e) {
 			int num = vistcod.ventestados.getSelectedIndex();
 			if(num>=0){
 				if(num == 1){
-					//vistcod.info.selectAll();
-					//vistcod.info.replaceSelection("");
+					
 					vistcod.info.setText("Aguascalientes");
 					idEntidades.clear();
 					datos1 = 0;
@@ -604,23 +600,25 @@ public void actionPerformed(ActionEvent e) {
 			}
 		}
 		if (e.getSource() == vistcod.hombre){
-			
+			genre = "";
 			vistcod.info2.setText("Población de Hombres");
 			Genero.clear();
 			datos2 = 0;
-			System.out.println("Genero limpio");
+			//System.out.println("Genero limpio");
 			for(int i=0;i<idEntidades.size();i++){
 				if(idEntidades.get(i).getSexo()== 2){
 					Genero.add(idEntidades.get(i));
 					datos2++;
 				}
 			}
+			
+			genre = "Hombres";
 			System.out.println("Hombres: "+datos2);
 			vistcod.info2.updateUI();
 			vistcod.info2.repaint();
 		}
 		if (e.getSource() == vistcod.mujer){
-			
+			genre = "";
 			vistcod.info2.setText("Población de Mujeres");
 			Genero.clear();
 			datos2 = 0;
@@ -630,14 +628,17 @@ public void actionPerformed(ActionEvent e) {
 					datos2++;
 				}
 			}
+			genre = "Mujeres";
 			System.out.println("Mujeres: "+datos2);
 			vistcod.info2.updateUI();
 			vistcod.info2.repaint();
 		}
 		if (e.getSource() == vistcod.epoc){
+			
 			vistcod.pangraph.updateUI();
 			vistcod.pangraph.repaint();
 			vistcod.pangraph.removeAll();
+			
 			vistcod.info3.setText("Número de Casos con EPOC");
 			datos3=0;
 			for(int i=0;i<Genero.size();i++){
@@ -645,13 +646,18 @@ public void actionPerformed(ActionEvent e) {
 					datos3++;
 				}
 			}
-			Grafica grafica = new Grafica(datos3, "a","1","EPOC");
-			vistcod.pangraph.add(grafica.creatDemoPanel());
+			Grafica grafica = new Grafica(datos3,genre,"","EPOC");
+			vistcod.pangraph.add(grafica.createDemoPanel());
+			
 			System.out.println(datos3);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
 		if (e.getSource() == vistcod.asma){
+			
+			vistcod.pangraph.updateUI();
+			vistcod.pangraph.repaint();
+			vistcod.pangraph.removeAll();
 			
 			vistcod.info3.setText("Número de Casos con Asma");
 			datos3=0;
@@ -660,11 +666,17 @@ public void actionPerformed(ActionEvent e) {
 					datos3++;
 				}
 			}
+			Grafica grafica = new Grafica(datos3,genre,"","ASMA");
+			vistcod.pangraph.add(grafica.createDemoPanel());
 			System.out.println(datos3);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
 		if (e.getSource() == vistcod.hipertension){
+			
+			vistcod.pangraph.updateUI();
+			vistcod.pangraph.repaint();
+			vistcod.pangraph.removeAll();
 			
 			vistcod.info3.setText("Número de Casos con Hipertension");
 			datos3=0;
@@ -673,12 +685,18 @@ public void actionPerformed(ActionEvent e) {
 					datos3++;
 				}
 			}
+			Grafica grafica = new Grafica(datos3,genre,"","HIPERTENSION");
+			vistcod.pangraph.add(grafica.createDemoPanel());
 			System.out.println(datos3);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
 		if (e.getSource() == vistcod.obesidad){
 		
+			vistcod.pangraph.updateUI();
+			vistcod.pangraph.repaint();
+			vistcod.pangraph.removeAll();
+			
 			vistcod.info3.setText("Número de Casos con Obesidad");
 			datos3=0;
 			for(int i=0;i<Genero.size();i++){
@@ -686,18 +704,45 @@ public void actionPerformed(ActionEvent e) {
 					datos3++;
 				}
 			}
+			Grafica grafica = new Grafica(datos3,genre,"","OBESIDAD");
+			vistcod.pangraph.add(grafica.createDemoPanel());
+			
 			System.out.println(datos3);
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
 		if (e.getSource() == vistcod.edad){
-			
+			vistcod.pangraph.updateUI();
+			vistcod.pangraph.repaint();
+			vistcod.pangraph.removeAll();
 			vistcod.info3.setText("Rango de Edades");
+			edad1 = 0;
+			edad2 = 0;
+			edad3 = 0;
+			for(int i=0; i<Genero.size();i++){
+				if(Genero.get(i).getEdad()<=23){
+					edad1++;
+				}
+				if(Genero.get(i).getEdad()>23 && Genero.get(i).getEdad()<=60){
+					edad2++;
+				}
+				if(Genero.get(i).getEdad()>60 && Genero.get(i).getEdad()<=110){
+					edad3++;
+				}
+			}
+			System.out.println("1: "+ edad1);
+			System.out.println("2: "+ edad2);
+			System.out.println("3: "+ edad3);
+			Grafica grafica = new Grafica(edad1,"0-23", edad2, "24-60", edad3, genre, "61-110", "EDAD");
+			vistcod.pangraph.add(grafica.createDemoPanel2());
 			vistcod.info3.updateUI();
 			vistcod.info3.repaint();
 		}
 
 			
 	}
+	
 
 }
+
+
