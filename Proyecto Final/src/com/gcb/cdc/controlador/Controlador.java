@@ -20,7 +20,6 @@ public class Controlador implements ActionListener{
 	int edad4 = 0;
 	int edad5 = 0;
 	int edad6 = 0;
-	
 	String genre = "";
 	ArrayList<ModeloCovid> idEntidades = new ArrayList<ModeloCovid>();
 	ArrayList<ModeloCovid> Genero = new ArrayList<ModeloCovid>();
@@ -715,6 +714,7 @@ public void actionPerformed(ActionEvent e) {
 			vistcod.info3.repaint();
 		}
 		if (e.getSource() == vistcod.edad){
+			
 			vistcod.pangraph.updateUI();
 			vistcod.pangraph.repaint();
 			vistcod.pangraph.removeAll();
@@ -722,6 +722,10 @@ public void actionPerformed(ActionEvent e) {
 			edad1 = 0;
 			edad2 = 0;
 			edad3 = 0;
+			edad4 = 0;
+			edad5 = 0;
+			edad6 = 0;
+			
 			for(int i=0; i<Genero.size();i++){
 				if(Genero.get(i).getEdad()>=20 && Genero.get(i).getEdad()<=30){
 					edad1++;
@@ -742,6 +746,10 @@ public void actionPerformed(ActionEvent e) {
 					edad6++;
 				}
 			}
+			
+			Grafica graph = new Grafica(edad1,edad2,edad3,edad4,edad5,edad6,genre,"RANGO DE EDADES");
+			vistcod.pangraph.add(graph.createDemoPanel2());
+			
 			System.out.println("1: "+ edad1);
 			System.out.println("2: "+ edad2);
 			System.out.println("3: "+ edad3);
@@ -757,5 +765,4 @@ public void actionPerformed(ActionEvent e) {
 	
 
 }
-
 
